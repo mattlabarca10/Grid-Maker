@@ -22,10 +22,22 @@ function addR() {
     //console.log("addR() Rows: " + numRows + " Cols: " + numCols);
 }
 
-
 // Add a column
 function addC() {
-    alert("Clicked Add Col"); // Replace this line with your code.
+    let table = document.getElementById("grid");
+    if(numRows == 0) {
+        addR(); 
+        return;
+    }
+    numCols++;
+    for(let i = 0; i < numRows; i++){
+        let newB = document.createElement("td");
+        newB.onclick = function() {
+            newB.style.backgroundColor=colorSelected
+        };
+        table.rows[i].appendChild(newB);
+    }
+    console.log("Rows: " + numRows + " Columns: " + numCols + "\n Added a column");
 }
 
 // Remove a row
