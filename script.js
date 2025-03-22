@@ -37,12 +37,21 @@ function addC() {
         };
         table.rows[i].appendChild(newB);
     }
-    console.log("Rows: " + numRows + " Columns: " + numCols + "\n Added a column");
+    //console.log("addC() Rows: " + numRows + " Cols: " + numCols);
 }
 
 // Remove a row
 function removeR() {
-    alert("Clicked Remove Row"); // Replace this line with your code.
+    if(numRows == 0){
+        return;
+    }
+    let table = document.getElementById("grid");
+    table.deleteRow(-1); 
+    numRows--;
+    if(numRows == 0){
+        numCols = 0;
+    }
+    console.log("removeR() Rows: " + numRows + " Cols: " + numCols);
 }
 
 // Remove a column
