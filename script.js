@@ -51,12 +51,25 @@ function removeR() {
     if(numRows == 0){
         numCols = 0;
     }
-    console.log("removeR() Rows: " + numRows + " Cols: " + numCols);
+    //console.log("removeR() Rows: " + numRows + " Cols: " + numCols);
 }
 
 // Remove a column
 function removeC() {
-    alert("Clicked Remove Col"); // Replace this line with your code.
+    let table = document.getElementById("grid");
+    if(numCols == 0){
+        numRows = 0;
+        while(table.rows.length > 0){
+            table.deleteRow(0);
+        }
+        return;
+    }
+    numCols--;
+    for(let i = 0; i < table.rows.length; i++)
+    {
+        table.rows[i].deleteCell(-1);
+    }
+    //console.log("removeR() Rows: " + numRows + " Cols: " + numCols);
 }
 
 // Set global variable for selected color
